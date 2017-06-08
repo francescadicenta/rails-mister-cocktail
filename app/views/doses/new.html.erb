@@ -1,0 +1,8 @@
+<h1>Let's create a new dose!</h1>
+
+<% simple_form_for [@cocktail, @dose]  do |f| %>
+  <%= f.input :description %>
+  <%= f.input :ingredient_id, collection: Ingredient.all %>
+  <!-- drop down list -->
+  <%= f.button :submit %>
+<% end %>
