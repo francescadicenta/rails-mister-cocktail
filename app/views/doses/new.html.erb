@@ -1,8 +1,20 @@
-<h1>Let's create a new dose!</h1>
+<div class = "text-center">
 
-<% simple_form_for [@cocktail, @dose]  do |f| %>
-  <%= f.input :description %>
-  <%= f.input :ingredient_id, collection: Ingredient.all %>
-  <!-- drop down list -->
-  <%= f.button :submit %>
-<% end %>
+  <h1>Let's add a new dose</h1>
+  <p>for <%= @cocktail.name %></p>
+  <%= link_to "Go back to the list", cocktails_path %>
+
+</div>
+
+<div class= "container">
+  <div class="row">
+    <div class = "col-md-4 col-md-offset-4">
+      <%= simple_form_for [@cocktail, @dose]  do |f| %>
+        <%= f.input :description %>
+        <%= f.input :ingredient_id, collection: Ingredient.all %>
+        <!-- drop down list -->
+        <%= f.button :submit, class: "btn btn-success"%>
+      <% end %>
+    </div>
+  </div>
+</div>

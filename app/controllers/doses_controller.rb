@@ -6,7 +6,9 @@ class DosesController < ApplicationController
 
   def create
     @dose = Dose.new(dose_params)
-    @dose.cocktail = Cocktail.find(params[:cocktail_id])
+    # @dose.cocktail = @cocktail ??????????
+    @cocktail = Cocktail.find(params[:cocktail_id])
+    @dose.cocktail = @cocktail
     # a dose is associated to the cocktail id !!
     if @dose.save
       redirect_to cocktail_path(@dose.cocktail), notice: "Success!"
@@ -26,6 +28,8 @@ class DosesController < ApplicationController
 
   def dose_params
     params.require(:dose).permit(:description, :ingredient_id)
+    # on permet juste de modifier la descrip e l'ingred
+    # pas tout, donc on aura permitted = false
   end
 end
 
