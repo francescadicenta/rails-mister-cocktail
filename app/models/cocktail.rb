@@ -4,4 +4,8 @@ class Cocktail < ApplicationRecord
   # so doses is the intermediate between cocktails and ingredients
   validates :name, uniqueness: true, presence: true
   #to have a name unique
+
+
+
+  has_attachment :photo
 end

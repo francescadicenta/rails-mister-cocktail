@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Attachinary::Engine => "/attachinary"
   get 'doses/new'
 
   get 'doses/create'
@@ -11,3 +12,5 @@ Rails.application.routes.draw do
 end
   resources :doses, only: :destroy
 end
+
+
